@@ -21,5 +21,8 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v5
             
+            - name: installing dependencies
+              run: npm install
+
             - name: running index.js file
               run: npm run dev

@@ -1,0 +1,25 @@
+name: CI demonstration 
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    log:
+        runs-on: ubuntu-latest
+        steps:
+            - name: logging
+              run: echo "logged"
+    
+    dev:
+        needs: log
+        strategy:
+            matrix:
+                os: ["windows-latest","ubunut-latest","macos-latest"]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v5
+            
+            - name: running index.js file
+              run: npm run dev

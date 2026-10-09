@@ -15,7 +15,7 @@ jobs:
         needs: log
         strategy:
             matrix:
-                os: ["windows-latest","ubunut-latest","macos-latest"]
+                os: ["windows-latest","ubuntu-latest","macos-latest"]
         runs-on: ${{ matrix.os }}
         steps:
             - name: checkout repo
